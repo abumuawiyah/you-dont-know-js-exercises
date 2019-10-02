@@ -5,8 +5,11 @@ const superman = {
   }
 };
 
+/**
+ * if superboy have same property with superman
+ * its property override the superman property
+ */
 const superboy = {
-  // __skills: ["canJump"],
   getSkills() {
     super.getSkills();
     console.log([...super.__skills, "canJump"]);
