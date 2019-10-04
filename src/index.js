@@ -7,7 +7,7 @@ user.id = 1;
 console.log("new id", user.id);
 
 console.log(superboy.getSkills());
-
+console.log(123);
 document.getElementById("app").innerHTML = `
 Kyle book
 `;
