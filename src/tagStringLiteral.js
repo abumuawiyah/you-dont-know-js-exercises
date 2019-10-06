@@ -18,4 +18,20 @@ function section(styles, ...values) {
   return `<section style="${getStyles(styles, values)}"></section>`;
 }
 
-export { div, section };
+function dollar(strings, ...values) {
+  var str = "";
+  strings.forEach((string, idx) => {
+    if (values[idx]) {
+      str += `
+        ${string}
+        ${typeof values[idx] === "number" ? `$${values[idx]}` : values[idx]}
+      `;
+    } else {
+      str += `${string}`;
+    }
+  });
+
+  return str;
+}
+
+export { div, section, dollar };

@@ -1,7 +1,7 @@
 import "./styles.css";
 import user from "./setget";
 import { superboy } from "./objLiteralSuper";
-import { div, section } from "./tagStringLiteral";
+import { div, section, dollar } from "./tagStringLiteral";
 
 console.log("old id", user.id);
 user.id = 1;
@@ -23,6 +23,11 @@ const styledSection = section`
   height: 100px;
   width: 300px;
 `;
+
+console.log(
+  "tes",
+  dollar`Today i get ${100} from my dad and ${90} from my brothers`
+);
 
 document.getElementById("app").innerHTML = `
   ${styledSection}  
