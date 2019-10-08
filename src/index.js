@@ -47,6 +47,24 @@ const test2 = readablePipe(add1, add1, substract1);
 
 console.log(test(2), test2(4));
 
+var threeSteps = first => {
+  if (first) {
+    return second => {
+      if (second) {
+        return third => {
+          console.log(first, second, third);
+        };
+      }
+    };
+  }
+};
+
+const step = threeSteps(1);
+const step2 = step(2);
+step2(3);
+
+step(1)(2);
+
 document.getElementById("app").innerHTML = `
   ${styledSection}  
   ${styledDiv}
