@@ -4,6 +4,7 @@ import { superboy } from "./objLiteralSuper";
 import { div, section, dollar } from "./tagStringLiteral";
 import pipe, { readablePipe } from "./pipe";
 import { obj as SymObj, fooSym, barSym } from "./symbols";
+import "./iterator";
 
 console.log("old id", user.id);
 user.id = 1;
