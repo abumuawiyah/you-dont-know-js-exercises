@@ -3,6 +3,7 @@ import user from "./setget";
 import { superboy } from "./objLiteralSuper";
 import { div, section, dollar } from "./tagStringLiteral";
 import pipe, { readablePipe } from "./pipe";
+import { obj as SymObj, fooSym, barSym } from "./symbols";
 
 console.log("old id", user.id);
 user.id = 1;
@@ -64,6 +65,18 @@ const step2 = step(2);
 step2(3);
 
 step(1)(2);
+
+console.log(SymObj, fooSym, barSym);
+SymObj["foo"] = "foo 1";
+SymObj["bar"] = "bar 1";
+SymObj[fooSym] = "foo 2";
+SymObj[barSym] = "bar 2";
+
+console.log(SymObj, SymObj[fooSym], SymObj[barSym]);
+console.log(
+  Object.getOwnPropertyNames(SymObj),
+  Object.getOwnPropertySymbols(SymObj)[0] === fooSym
+);
 
 document.getElementById("app").innerHTML = `
   ${styledSection}  
