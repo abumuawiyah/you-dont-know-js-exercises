@@ -27,10 +27,8 @@ const styledSection = section`
   width: 300px;
 `;
 
-console.log(
-  "dollar",
-  dollar`Today i get ${100} from my dad and ${90} from my brothers`
-);
+//text``
+//textComponent`<`
 
 function add1(num) {
   return num + 1;
@@ -78,6 +76,25 @@ console.log(
   Object.getOwnPropertyNames(SymObj),
   Object.getOwnPropertySymbols(SymObj)[0] === fooSym
 );
+
+const tmpls = {
+  a: "i am ${name}",
+  b: "while i am ${name}"
+};
+
+const text = id => data => {
+  if (tmpls[id]) {
+    const keys = Object.keys(data);
+    const values = Object.values(data);
+    return new Function(...keys, `return \`${tmpls[id]}\``)(...values);
+  }
+};
+
+const a = text("a");
+const b = text("b");
+const c = text("c");
+
+console.log(a({ name: "azizi" }), b({ name: "hafsa" }), c());
 
 document.getElementById("app").innerHTML = `
   ${styledSection}  
